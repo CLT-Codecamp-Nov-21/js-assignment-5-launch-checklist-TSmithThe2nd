@@ -14,11 +14,39 @@ window.addEventListener("load", function () {
         const coName = document.getElementById('copilotName').value;
         const flevel = document.getElementById('fuelLevel').value;
         const cMass = document.getElementById('cargoMass').value;
+        // creates varibles representing item status
+        const pStatus= document.getElementById('pilotStatus');
+        const coStatus= document.getElementById('copilotStatus');
+        const fStatus= document.getElementById('fuelStatus');
+        const cStatus= document.getElementById('cargoStatus');
+        // varibles representing header 2
+        const header=document.getElementById('launchStatus')
         // did user complete all fields?
         if (validateInput(pName) === "Not a number" && validateInput(coName) === 'Not a number'
             && validateInput(flevel) === 'Is a number' && validateInput(cMass) === "Is a number") {
-            //  reveal laucnh status if yes reveal
+            
+                //  reveal laucnh status if yes reveal
             document.getElementById('faultyItems').style.visibility = 'visible';
+
+            // update list items on launch list crew
+            pStatus.innerHTML= `Pilot ${pName} is ready for launch!`;
+            coStatus.innerHTML= `Copilot ${coName} is ready for launch!`;
+
+            // update launch status cargo and fuel
+            if(flevel<10000){
+                fStatus.innerHTML='Fuel level is too low'
+            }else{fStatus.innerHTML='Fuel level high enough for launch'}
+            
+            if(cMass>10000){
+                cStatus.innerHTML="Cargo too heavy"
+            }else if(cMass<=10000){cStatus.innerHTML='Cargo mass low enough for launch'}
+            
+            if(flevel<10000|| cMass>10000){
+                header.innerHTML="Shuttle not ready for launch";
+                header.style.color= 'red';
+            }else{header.innerHTML='Shuttle is ready for Launch'
+            header.style.color= 'green';}
+
         }
 
 
