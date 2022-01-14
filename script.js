@@ -1,8 +1,13 @@
 // Write your JavaScript code here!
 
 window.addEventListener("load", function() {
-
+    
+    document.getElementById("formSubmit").addEventListener("click", function(event){
+        event.preventDefault()
+      }); 
    let listedPlanets;
+
+
    // Set listedPlanetsResponse equal to the value returned by calling myFetch()
    let listedPlanetsResponse;
    listedPlanetsResponse.then(function (result) {
@@ -14,3 +19,4 @@ window.addEventListener("load", function() {
    })
    
 });
+
