@@ -12,7 +12,7 @@ window.addEventListener("load", function () {
         // creates varibles representing user text inputs
         const pName = document.getElementById('pilotName').value;
         const coName = document.getElementById('copilotName').value;
-        const flevel = document.getElementById('fuelLevel').value;
+        const fLevel = document.getElementById('fuelLevel').value;
         const cMass = document.getElementById('cargoMass').value;
         // creates varibles representing item status
         const pStatus= document.getElementById('pilotStatus');
@@ -22,8 +22,10 @@ window.addEventListener("load", function () {
         // varibles representing header 2
         const header=document.getElementById('launchStatus')
         // did user complete all fields?
-        if (validateInput(pName) === "Not a number" && validateInput(coName) === 'Not a number'
-            && validateInput(flevel) === 'Is a number' && validateInput(cMass) === "Is a number") {
+
+        //  place me inside of the if statement later: formSubmission(document,pName,coName,fLevel,cMass)===true;
+        if (formSubmission(document,pName,coName,fLevel,cMass)==='complete'
+            ) {
             
                 //  reveal laucnh status if yes reveal
             document.getElementById('faultyItems').style.visibility = 'visible';
@@ -33,7 +35,7 @@ window.addEventListener("load", function () {
             coStatus.innerHTML= `Copilot ${coName} is ready for launch!`;
 
             // update launch status cargo and fuel
-            if(flevel<10000){
+            if(fLevel<10000){
                 fStatus.innerHTML='Fuel level is too low'
             }else{fStatus.innerHTML='Fuel level high enough for launch'}
             
@@ -41,7 +43,7 @@ window.addEventListener("load", function () {
                 cStatus.innerHTML="Cargo too heavy"
             }else if(cMass<=10000){cStatus.innerHTML='Cargo mass low enough for launch'}
             
-            if(flevel<10000|| cMass>10000){
+            if(fLevel<10000|| cMass>10000){
                 header.innerHTML="Shuttle not ready for launch";
                 header.style.color= 'red';
             }else{header.innerHTML='Shuttle is ready for Launch'

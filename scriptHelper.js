@@ -25,8 +25,18 @@ function validateInput(testInput) {
    
 }
 
-function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
+function formSubmission(document, pilot, copilot, fuelLevel, cargoLevel) {
    
+    // check input of pilot, copilot, fuelLevel, and cargoMass
+    let field=undefined;
+    if (validateInput(pilot) === "Not a number" && validateInput(copilot) === 'Not a number'
+            && validateInput(fuelLevel) === 'Is a number' && validateInput(cargoLevel) === "Is a number"){
+                field='complete'
+            } else {field= 'incomplete'};
+
+            return field;
+
+
 }
 
 async function myFetch() {
