@@ -2,7 +2,10 @@
 
 
 window.addEventListener("load", function () {
-    //set varibles  
+    //set varibles 
+    // creates varibles representing item status
+    const list = document.getElementById('faultyItems');
+    list.style.visibility='hidden' 
     let listedPlanets;
     // Set listedPlanetsResponse equal to the value returned by calling myFetch()
 
@@ -21,8 +24,7 @@ window.addEventListener("load", function () {
         const coName = document.querySelector("input[name='copilotName']").value;
         const flevel = document.querySelector("input[name='fuelLevel']").value;
         const cMass = document.querySelector("input[name='cargoMass']").value;
-        // creates varibles representing item status
-        const list = document.getElementById('faultyItems');
+        
     
         // varibles representing header 2
         const header = document.getElementById('launchStatus')
