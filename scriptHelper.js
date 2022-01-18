@@ -15,8 +15,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
                      <li>Distance from Earth: ${distance} </li>
                      <li>Number of Moons: ${moons} </li>
                  </ol>
-                 <img src="${imageUrl}">`;
-    
+                 <img src="${imageUrl}">`;   
 }
 
 function validateInput(testInput) {
@@ -69,25 +68,14 @@ function formSubmission(document,list, pilot, copilot, fuelLevel, cargoLevel) {
         }else{header.innerHTML='Shuttle is Ready for Launch'
         header.style.color= 'rgb(65,159,106)';}
 
-
-
-
     }
-
-    
-
     return field;
-
-
 }
 
 async function myFetch() {
     let planetsReturned;
 
     planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then(result => result.json());
-
-
-
     return planetsReturned;
 }
 
